@@ -452,7 +452,7 @@ async function loadCurrentProfile(){
   if(!snap.exists()) throw new Error('USER_PROFILE_MISSING');
   const data=snap.data();
   const role=String(data.role||'employee').toLowerCase();
-  if(!['admin','manager','employee'].includes(role)) throw new Error('INVALID_ROLE');
+  if(!['admin','manager','employee','green'].includes(role)) throw new Error('INVALID_ROLE');
   currentProfile={...data,uid:firebaseUser.uid};
   currentRole=role;
   return currentProfile;
